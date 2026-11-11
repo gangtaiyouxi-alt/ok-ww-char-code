@@ -10,7 +10,11 @@ const TEAMS_JSON_PATH = path.join(ROOT_DIR, 'teams.json');
 const INDEX_HTML_PATH = path.join(ROOT_DIR, 'index.html');
 const CNAME_PATH = path.join(ROOT_DIR, 'CNAME');
 
-const BASE_DOMAIN = 'okwwcharcode.ok-script.com';
+// Raw-only hosting: this repo has no Pages/Cloudflare front end, so every
+// published URL must be a raw.githubusercontent.com one or the OK-WW workshop
+// cannot download anything. getGithubRepo is a hoisted function declaration.
+const REPO = getGithubRepo();
+const BASE_DOMAIN = `raw.githubusercontent.com/${REPO}/main`;
 const BASE_URL = `https://${BASE_DOMAIN}`;
 
 function getGitCommitTimestamp(filePath) {
@@ -66,7 +70,7 @@ function getGithubRepo() {
   } catch {
     // fallback
   }
-  return 'ok-oldking/ok-ww-char-code';
+  return 'yamadafz/ok-ww-char-code';
 }
 
 function parseZipFiles() {
@@ -121,7 +125,7 @@ function parseZipFiles() {
       filename: file,
       downloadUrl: `${BASE_URL}/codes/${encodedFileName}`,
       relativePath: `codes/${encodedFileName}`,
-      rawUrl: `https://raw.githubusercontent.com/${getGithubRepo()}/main/codes/${encodedFileName}`,
+      rawUrl: `${BASE_URL}/codes/${encodedFileName}`,
       name,
       author,
       version,
@@ -886,9 +890,12 @@ function main() {
   const rawItems = parseZipFiles();
   const groupedTeams = groupDataByTeam(rawItems);
 
-  // 1. Ensure CNAME exists
-  fs.writeFileSync(CNAME_PATH, `${BASE_DOMAIN}\n`, 'utf8');
-  console.log(`[OK] Configured CNAME: ${BASE_DOMAIN}`);
+  // 1. No CNAME: raw.githubusercontent.com hosting has no custom domain, and a
+  // leftover CNAME would hijack Pages if it were ever enabled.
+  if (fs.existsSync(CNAME_PATH)) {
+    fs.unlinkSync(CNAME_PATH);
+    console.log(`[OK] Removed stale CNAME`);
+  }
 
   // 2. Ensure teams directory exists and clean old files
   if (fs.existsSync(TEAMS_DIR)) {
@@ -945,7 +952,7 @@ function main() {
   // 4. Generate aggregated teams.json
   const aggregatedPayload = {
     repository: repo,
-    pageUrl: BASE_URL,
+    pageUrl: `https://github.com/${repo}`,
     jsonUrl: `${BASE_URL}/teams.json`,
     totalTeams: Object.keys(groupedTeams).length,
     totalCodes: rawItems.length,

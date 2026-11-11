@@ -7,12 +7,12 @@
     "Verina"
   ],
   "totalCodes": 1,
-  "jsonUrl": "https://okwwcharcode.ok-script.com/teams/Hiyuki_Lucilla_Verina.json",
+  "jsonUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams/Hiyuki_Lucilla_Verina.json",
   "codes": [
     {
       "filename": "Hiyuki_Lucilla_Verina_a38999_1.0.0.zip",
-      "downloadUrl": "https://okwwcharcode.ok-script.com/codes/Hiyuki_Lucilla_Verina_a38999_1.0.0.zip",
-      "rawUrl": "https://raw.githubusercontent.com/ok-oldking/ok-ww-char-code/main/codes/Hiyuki_Lucilla_Verina_a38999_1.0.0.zip",
+      "downloadUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Hiyuki_Lucilla_Verina_a38999_1.0.0.zip",
+      "rawUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Hiyuki_Lucilla_Verina_a38999_1.0.0.zip",
       "name": "Hiyuki_Lucilla_Verina",
       "description": "绯洛维25s4居合标准轴，开局需要切到维里奈\n\n绯雪共鸣效率需求120+，最好125+，无命座需求。\n洛瑟菈共鸣效率100，无命座需求。\n维里奈共鸣效率240+，需要有高精奇幻变奏或者2链。",
       "author": "a38999",

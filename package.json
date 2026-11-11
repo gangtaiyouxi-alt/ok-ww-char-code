@@ -19,11 +19,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ok-oldking/ok-ww-char-code.git"
+    "url": "git+https://github.com/yamadafz/ok-ww-char-code.git"
   },
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/ok-oldking/ok-ww-char-code/issues"
+    "url": "https://github.com/yamadafz/ok-ww-char-code/issues"
   },
-  "homepage": "https://github.com/ok-oldking/ok-ww-char-code#readme"
+  "homepage": "https://github.com/yamadafz/ok-ww-char-code#readme"
 }
