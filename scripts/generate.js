@@ -10,9 +10,6 @@ const TEAMS_JSON_PATH = path.join(ROOT_DIR, 'teams.json');
 const INDEX_HTML_PATH = path.join(ROOT_DIR, 'index.html');
 const CNAME_PATH = path.join(ROOT_DIR, 'CNAME');
 
-// Raw-only hosting: this repo has no Pages/Cloudflare front end, so every
-// published URL must be a raw.githubusercontent.com one or the OK-WW workshop
-// cannot download anything. getGithubRepo is a hoisted function declaration.
 const REPO = getGithubRepo();
 const BASE_DOMAIN = `raw.githubusercontent.com/${REPO}/main`;
 const BASE_URL = `https://${BASE_DOMAIN}`;
@@ -70,7 +67,7 @@ function getGithubRepo() {
   } catch {
     // fallback
   }
-  return 'yamadafz/ok-ww-char-code';
+  return 'ok-oldking/ok-ww-char-code';
 }
 
 function parseZipFiles() {
@@ -125,7 +122,7 @@ function parseZipFiles() {
       filename: file,
       downloadUrl: `${BASE_URL}/codes/${encodedFileName}`,
       relativePath: `codes/${encodedFileName}`,
-      rawUrl: `${BASE_URL}/codes/${encodedFileName}`,
+      rawUrl: `https://raw.githubusercontent.com/${getGithubRepo()}/main/codes/${encodedFileName}`,
       name,
       author,
       version,
@@ -890,8 +887,7 @@ function main() {
   const rawItems = parseZipFiles();
   const groupedTeams = groupDataByTeam(rawItems);
 
-  // 1. No CNAME: raw.githubusercontent.com hosting has no custom domain, and a
-  // leftover CNAME would hijack Pages if it were ever enabled.
+  // 1. Remove stale CNAME for raw.githubusercontent.com hosting
   if (fs.existsSync(CNAME_PATH)) {
     fs.unlinkSync(CNAME_PATH);
     console.log(`[OK] Removed stale CNAME`);
@@ -952,7 +948,7 @@ function main() {
   // 4. Generate aggregated teams.json
   const aggregatedPayload = {
     repository: repo,
-    pageUrl: `https://github.com/${repo}`,
+    pageUrl: BASE_URL,
     jsonUrl: `${BASE_URL}/teams.json`,
     totalTeams: Object.keys(groupedTeams).length,
     totalCodes: rawItems.length,

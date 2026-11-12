@@ -1,14 +1,6 @@
-<!-- 本仓库为下线项目的抢救镜像，说明见下 -->
-
-> ## 镜像说明 / Mirror notice
->
-> 本仓库是 **`ok-oldking/ok-ww-char-code`** 的完整快照
-
----
-
 # 鸣潮角色配置代码仓库 (Wuthering Waves Character Codes)
 
-[English Version](#-english-documentation) | [在线浏览与下载平台](https://github.com/yamadafz/ok-ww-char-code) | [teams.json 全量接口](https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams.json)
+[English Version](#-english-documentation) | [在线浏览与下载平台](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/) | [teams.json 全量接口](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams.json)
 
 本项目是《鸣潮》（Wuthering Waves）角色代码与配队脚本配置的静态发布与分发仓库。所有压缩包均按配队自动分组呈现，并提供静态网页浏览、直链下载以及 JSON API 数据接口。
 
@@ -31,7 +23,7 @@
 ## ✨ 特性亮点
 
 - **自动解析与归类**：自动扫描 `codes/` 目录下的 `.zip` 文件并解析其中的 `team.json`，按队伍自动分类。
-- **手动构建**：原 GitHub Actions 自动构建已移除（它会用已失效的域名覆盖 JSON 里的链接）；改动 `codes/` 后需手动运行 `npm install && npm run build` 重新生成 JSON 接口。
+- **全自动化 CI/CD**：通过 GitHub Actions 自动化构建，合入 PR 后无需人工干预，自动更新静态网页与 JSON 接口。
 - **独立 JSON 接口**：除网页外，还为每个配队生成独立的 `teams/<team_name>.json` 及全局 `teams.json`，便于第三方工具调用。
 - **确定性构建**：依赖 Git Commit 时间戳作为版本依据，避免不必要的构建冲突。
 
@@ -77,7 +69,7 @@
    ![第五步：拖拽上传并点击 Propose changes](doc/create_a_pr.png)
 
 4. 点击 **「Create pull request」** 确认提交。
-5. 待 PR 审核合并到 `main` 分支后，维护者需手动运行 `npm install && npm run build` 重新生成 `teams.json` 与 `teams/*.json` 并提交，链接才会更新。
+5. 待 PR 审核合并到 `main` 分支后，GitHub Actions 会自动部署更新至 [raw.githubusercontent.com/Viemean/ok-ww-char-code/main](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/)！
 
 ---
 
@@ -140,10 +132,10 @@ Aemeath_Augusta_Baizhi_11_1.0.0.zip
 
 | 资源 | 访问地址 | 说明 |
 | :--- | :--- | :--- |
-| **在线静态展示页** | [raw.githubusercontent.com/yamadafz/ok-ww-char-code/main](https://github.com/yamadafz/ok-ww-char-code) | 包含搜索、筛选与下载的前端页面 |
-| **全量队伍配置接口** | `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams.json` | 包含所有队伍、角色及下载直链汇总 |
-| **单队伍配置接口** | `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams/<队伍名>.json` | 单个队伍的详细元数据及版本下载列表 |
-| **ZIP 文件直链** | `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/<文件名>.zip` | 压缩包直接下载链接 |
+| **在线静态展示页** | [raw.githubusercontent.com/Viemean/ok-ww-char-code/main](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/) | 包含搜索、筛选与下载的前端页面 |
+| **全量队伍配置接口** | `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams.json` | 包含所有队伍、角色及下载直链汇总 |
+| **单队伍配置接口** | `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams/<队伍名>.json` | 单个队伍的详细元数据及版本下载列表 |
+| **ZIP 文件直链** | `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/<文件名>.zip` | 压缩包直接下载链接 |
 
 ---
 
@@ -168,7 +160,7 @@ A static repository and download catalog for Wuthering Waves character codes and
 ### Features
 - **Auto Parsing & Grouping**: Automatically parses `team.json` within zip files inside `codes/` and groups them by team.
 - **Dedicated Team APIs**: Generates individual `teams/<team_name>.json` APIs and a root aggregated `teams.json`.
-- **Manual build**: the original GitHub Actions workflow was removed (it overwrote the JSON links with a dead domain); run `npm install && npm run build` after changing `codes/`.
+- **Automated CI/CD**: Automatically builds and deploys to GitHub Pages (`raw.githubusercontent.com/Viemean/ok-ww-char-code/main`) on PR merges.
 - **Deterministic Builds**: Uses Git commit timestamps to ensure idempotent builds and prevent merge conflicts.
 
 ---
@@ -201,13 +193,13 @@ A static repository and download catalog for Wuthering Waves character codes and
 
    ![Step 5: Drag & drop zip and Propose changes](doc/create_a_pr.png)
 
-5. Click **Create pull request** to submit. Once merged, a maintainer runs `npm install && npm run build` to regenerate `teams.json` and `teams/*.json`, then commits the result.
+5. Click **Create pull request** to submit. Once merged, GitHub Actions will automatically rebuild and deploy to [raw.githubusercontent.com/Viemean/ok-ww-char-code/main](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/).
 
 ---
 
 ### API Endpoints
 
-- **Web Portal**: [https://github.com/yamadafz/ok-ww-char-code](https://github.com/yamadafz/ok-ww-char-code)
-- **All Teams Index**: `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams.json`
-- **Individual Team API**: `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams/<team_slug>.json`
-- **Direct ZIP Download**: `https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/<filename>.zip`
+- **Web Portal**: [https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/](https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/)
+- **All Teams Index**: `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams.json`
+- **Individual Team API**: `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams/<team_slug>.json`
+- **Direct ZIP Download**: `https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/<filename>.zip`

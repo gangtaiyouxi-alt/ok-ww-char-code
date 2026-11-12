@@ -7,12 +7,12 @@
     "Shorekeeper"
   ],
   "totalCodes": 1,
-  "jsonUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams/Hsin_Jinhsi_Shorekeeper.json",
+  "jsonUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams/Hsin_Jinhsi_Shorekeeper.json",
   "codes": [
     {
       "filename": "Hsin_Jinhsi_Shorekeeper_楽山_1.1.0.zip",
-      "downloadUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Hsin_Jinhsi_Shorekeeper_%E6%A5%BD%E5%B1%B1_1.1.0.zip",
-      "rawUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Hsin_Jinhsi_Shorekeeper_%E6%A5%BD%E5%B1%B1_1.1.0.zip",
+      "downloadUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/Hsin_Jinhsi_Shorekeeper_%E6%A5%BD%E5%B1%B1_1.1.0.zip",
+      "rawUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/Hsin_Jinhsi_Shorekeeper_%E6%A5%BD%E5%B1%B1_1.1.0.zip",
       "name": "Hsin_Jinhsi_Shorekeeper",
       "description": "心汐守轮椅轴 \n样本：61心01汐21守 \n共效：心128 汐122 守280 \n位置：一号位守 二号位汐 三号位心 \n实机已跑通 复现难度不高 加了很多的保底 但是由于今汐会卡CD可能会导致流程拉长最后没有4R 需要多次尝试 \n10/7 优化了部分流程",
       "author": "楽山",

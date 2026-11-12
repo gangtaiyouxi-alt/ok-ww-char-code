@@ -7,12 +7,12 @@
     "Mornye"
   ],
   "totalCodes": 1,
-  "jsonUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/teams/Galbrena_Lupa_Mornye.json",
+  "jsonUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/teams/Galbrena_Lupa_Mornye.json",
   "codes": [
     {
       "filename": "Galbrena_Lupa_Mornye_楽山_1.0.0.zip",
-      "downloadUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Galbrena_Lupa_Mornye_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
-      "rawUrl": "https://raw.githubusercontent.com/yamadafz/ok-ww-char-code/main/codes/Galbrena_Lupa_Mornye_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
+      "downloadUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/Galbrena_Lupa_Mornye_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
+      "rawUrl": "https://raw.githubusercontent.com/Viemean/ok-ww-char-code/main/codes/Galbrena_Lupa_Mornye_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
       "name": "Galbrena_Lupa_Mornye",
       "description": "嘉露莫轮椅轴\n样本：01嘉贝01露帕11莫宁\n共效：嘉贝120 露帕125 莫宁260\n位置：一号位嘉贝 二号位露帕 三号位莫宁\n实机已跑通 复现难度低 增加了诸多嘉贝与露帕的流程保底\n建议在关闭游戏内插帧开关与开启120帧 确保游戏帧率至少大于60（可以开启N卡插帧） 关闭显示器的HDR 分辨率最好为2K/1K",
       "author": "楽山",
