@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 const AdmZip = require('adm-zip');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -8,16 +8,15 @@ const CODES_DIR = path.join(ROOT_DIR, 'codes');
 const TEAMS_DIR = path.join(ROOT_DIR, 'teams');
 const TEAMS_JSON_PATH = path.join(ROOT_DIR, 'teams.json');
 const INDEX_HTML_PATH = path.join(ROOT_DIR, 'index.html');
-const CNAME_PATH = path.join(ROOT_DIR, 'CNAME');
+const { createHash } = require('crypto');
 
-const REPO = getGithubRepo();
-const BASE_DOMAIN = `raw.githubusercontent.com/${REPO}/main`;
-const BASE_URL = `https://${BASE_DOMAIN}`;
+const BASE_DOMAIN = 's2a.godraymond.com';
+const BASE_URL = `https://${BASE_DOMAIN}/workshop`;
 
 function getGitCommitTimestamp(filePath) {
   try {
     const relPath = path.relative(ROOT_DIR, filePath).replace(/\\/g, '/');
-    const stdout = execSync(`git log -1 --format=%ct -- "${relPath}"`, {
+    const stdout = execFileSync('git', ['log', '-1', '--format=%ct', '--', relPath], {
       cwd: ROOT_DIR,
       encoding: 'utf8',
       stdio: ['pipe', 'pipe', 'ignore']
@@ -78,7 +77,7 @@ function parseZipFiles() {
   }
 
   const files = fs.readdirSync(CODES_DIR);
-  const zipFiles = files.filter(f => f.toLowerCase().endsWith('.zip'));
+  const zipFiles = files.filter(f => f.toLowerCase().endsWith('.zip')).sort();
 
   console.log(`[INFO] Found ${zipFiles.length} zip files in codes/`);
 
@@ -115,14 +114,15 @@ function parseZipFiles() {
       .map(m => m.trim())
       .filter(Boolean);
 
-    const encodedFileName = encodeURIComponent(file);
+    const encodedFileName = encodeURIComponent(file).replace(/'/g, '%27');
     const timestamp = getGitCommitTimestamp(zipPath);
 
     results.push({
       filename: file,
       downloadUrl: `${BASE_URL}/codes/${encodedFileName}`,
       relativePath: `codes/${encodedFileName}`,
-      rawUrl: `https://raw.githubusercontent.com/${getGithubRepo()}/main/codes/${encodedFileName}`,
+      rawUrl: `${BASE_URL}/codes/${encodedFileName}`,
+      sha256: createHash('sha256').update(fs.readFileSync(zipPath)).digest('hex'),
       name,
       author,
       version,
@@ -164,7 +164,8 @@ function groupDataByTeam(items) {
 }
 
 function generateHtml(teamsGrouped, allItems, repoName) {
-  const teamsList = Object.values(teamsGrouped);
+  const escape = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  const teamsList = JSON.parse(JSON.stringify(Object.values(teamsGrouped)), (key, value) => typeof value === 'string' ? escape(value) : value);
   const totalCodes = allItems.length;
   const totalTeams = teamsList.length;
 
@@ -887,12 +888,6 @@ function main() {
   const rawItems = parseZipFiles();
   const groupedTeams = groupDataByTeam(rawItems);
 
-  // 1. Remove stale CNAME for raw.githubusercontent.com hosting
-  if (fs.existsSync(CNAME_PATH)) {
-    fs.unlinkSync(CNAME_PATH);
-    console.log(`[OK] Removed stale CNAME`);
-  }
-
   // 2. Ensure teams directory exists and clean old files
   if (fs.existsSync(TEAMS_DIR)) {
     for (const f of fs.readdirSync(TEAMS_DIR)) {
@@ -919,6 +914,7 @@ function main() {
         filename: c.filename,
         downloadUrl: c.downloadUrl,
         rawUrl: c.rawUrl,
+        sha256: c.sha256,
         name: c.name,
         description: c.description,
         author: c.author,
@@ -960,7 +956,7 @@ function main() {
 
   // 5. Generate root index.html
   const htmlContent = generateHtml(groupedTeams, rawItems, repo);
-  fs.writeFileSync(INDEX_HTML_PATH, htmlContent, 'utf8');
+  fs.writeFileSync(INDEX_HTML_PATH, htmlContent.replace(/[ \t]+$/gm, ''), 'utf8');
   console.log(`[OK] Generated static page: index.html`);
 
   console.log('--- Static Generation Completed Successfully ---');

@@ -1,0 +1,71 @@
+{
+  "team": "Hsin, Lily, Suoming",
+  "slug": "Hsin_Lily_Suoming",
+  "members": [
+    "Hsin",
+    "Lily",
+    "Suoming"
+  ],
+  "totalCodes": 3,
+  "jsonUrl": "https://s2a.godraymond.com/workshop/teams/Hsin_Lily_Suoming.json",
+  "codes": [
+    {
+      "filename": "Hsin_Lily_Suoming_楽山_1.0.1.zip",
+      "downloadUrl": "https://s2a.godraymond.com/workshop/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_1.0.1.zip",
+      "rawUrl": "https://s2a.godraymond.com/workshop/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_1.0.1.zip",
+      "sha256": "b8c0156e76d1017060873aeb186fd38c1c7db2a4667b17d691f29e2499b1fffb",
+      "name": "Hsin_Lily_Suoming",
+      "description": "心锁莉轮椅轴\n样本：61心 01锁 00莉\n共效：心125 锁130 莉莉260\n位置：一号位莉莉 二号位锁瞑 三号位心\n场景：【矩阵/深塔】\n容错率高，没什么好说的，基础队伍 比较稳定",
+      "author": "楽山",
+      "version": "1.0.1",
+      "team": "Hsin, Lily, Suoming",
+      "members": [
+        "Hsin",
+        "Lily",
+        "Suoming"
+      ],
+      "size": 47558,
+      "sizeFormatted": "46.44 KB",
+      "timestamp": 1795191009,
+      "modifiedAt": "2026-11-20T16:10:09.000Z"
+    },
+    {
+      "filename": "Hsin_Lily_Suoming_楽山_1.0.0.zip",
+      "downloadUrl": "https://okwwcharcode.ok-script.com/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
+      "rawUrl": "https://raw.githubusercontent.com/ok-oldking/ok-ww-char-code/main/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_1.0.0.zip",
+      "name": "Hsin_Lily_Suoming",
+      "description": "心锁梨5R2\n样本：61心01锁00莉（4星共效枪）\n共效：心125 锁130 莉莉260\n位置：一号位心 二号位锁瞑 三号位莉莉\n场景：【矩阵/深塔】\n实机未跑通，主要是做不到不转火，理论上操作是没问题的，但是容错只有2S 太少了 只有不转火或者转火1次的情况下有可能跑通，也有可能代码有问题，但是我目前环境没办法测试了",
+      "author": "楽山",
+      "version": "1.0.0",
+      "team": "Hsin, Lily, Suoming",
+      "members": [
+        "Hsin",
+        "Lily",
+        "Suoming"
+      ],
+      "size": 62446,
+      "sizeFormatted": "60.98 KB",
+      "timestamp": 1795109175,
+      "modifiedAt": "2026-11-19T17:26:15.000Z"
+    },
+    {
+      "filename": "Hsin_Lily_Suoming_楽山_轮椅_1.0.3.zip",
+      "downloadUrl": "https://okwwcharcode.ok-script.com/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_%E8%BD%AE%E6%A4%85_1.0.3.zip",
+      "rawUrl": "https://raw.githubusercontent.com/ok-oldking/ok-ww-char-code/main/codes/Hsin_Lily_Suoming_%E6%A5%BD%E5%B1%B1_%E8%BD%AE%E6%A4%85_1.0.3.zip",
+      "name": "Hsin_Lily_Suoming",
+      "description": "心锁莉轮椅轴\n样本：61心 01锁 00莉\n共效：心125 锁130 莉莉260\n位置：一号位莉莉 二号位锁瞑 三号位心\n场景：【矩阵/深塔】\n容错率高，没什么好说的，基础队伍 比较稳定\n\n1.0.3 更新：\n· 莉莉、锁瞑放完 Q 马上接下一招（修 1080p 下莉莉终章后 R 偶尔晚 1 秒）\n\n1.0.2 更新：\n· 兼容原版 OKWW（修原版里心 R1 后不切锁暝）\n· 心插段改回 2A+E，应世心没满就多补一下 A 再 E\n· 循环轴心闪避改成 W+A 斜前闪\n· 莉莉 R 好了直接放，不等图标亮",
+      "author": "楽山",
+      "version": "1.0.3",
+      "team": "Hsin, Lily, Suoming",
+      "members": [
+        "Hsin",
+        "Lily",
+        "Suoming"
+      ],
+      "size": 49629,
+      "sizeFormatted": "48.47 KB",
+      "timestamp": 1795244549,
+      "modifiedAt": "2026-11-21T07:02:29.000Z"
+    }
+  ]
+}
